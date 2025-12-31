@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specially For You!!</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap');
+
+:root{
+    --pink:#ff8fa3;
+    --light-pink:#fff0f3;
+    --cream:#fff9ec;
+    --text:#4a4a4a;
+}
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#fff0f3,#fff9ec);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+    color:var(--text);
+}
+
+/* floating rose petals */
+.petal{
+    position:absolute;
+    font-size:20px;
+    opacity:0.3;
+    animation: float 12s linear infinite;
+}
+@keyframes float{
+    from{transform:translateY(110vh) rotate(0deg);}
+    to{transform:translateY(-10vh) rotate(360deg);}
+}
+
+.container{
+    width:90%;
+    max-width:500px;
+    background:white;
+    padding:30px;
+    border-radius:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+    text-align:center;
+    position:relative;
+    min-height:350px;
+}
+
+.screen{display:none;animation:fadeIn .6s ease;}
+.screen.active{display:block;}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(15px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+button{
+    background:var(--pink);
+    color:white;
+    border:none;
+    padding:12px 28px;
+    border-radius:50px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:22px;
+    transition:.3s;
+}
+button:hover{transform:scale(1.05);}
+
+/* Page 1 butterfly loader */
+.loader{
+    font-size:60px;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+/* Romantic envelope */
+.envelope{
+    font-size:90px;
+    cursor:pointer;
+    animation:pulse 1.8s infinite;
+    filter:drop-shadow(0 0 10px rgba(255,143,163,.6));
+}
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.12);}
+    100%{transform:scale(1);}
+}
+
+/* cards */
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:20px;
+}
+.mini-card{
+    background:var(--cream);
+    padding:16px;
+    border-radius:15px;
+    font-size:13px;
+    border:1px dashed var(--pink);
+}
+
+/* letter */
+.letter{
+    background:#fff9ec;
+    padding:20px;
+    border-radius:15px;
+    margin-top:15px;
+    font-family:'Dancing Script',cursive;
+    font-size:18px;
+    line-height:1.5;
+}
+.signature{
+    margin-top:20px;
+    font-family:'Dancing Script',cursive;
+    font-size:26px;
+    text-align:right;
+}
+</style>
+</head>
+
+<body>
+
+<!-- petals -->
+<div class="petal" style="left:10%;animation-delay:0s">🌸</div>
+<div class="petal" style="left:40%;animation-delay:3s">🌸</div>
+<div class="petal" style="left:70%;animation-delay:6s">🌸</div>
+<div class="petal" style="left:85%;animation-delay:9s">🌸</div>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+<div id="s1" class="screen active">
+    <div class="loader">🦋</div>
+    <p>Loading something special…</p>
+    <button onclick="next(2)">Open My Heart</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="s2" class="screen">
+    <div class="envelope" onclick="next(3)">💌</div>
+    <p>Tap gently… something romantic awaits 💗</p>
+</div>
+
+<!-- PAGE 3 -->
+<div id="s3" class="screen">
+    <h2>Happy New Year, my fav person aishwarya!!😝</h2>
+    <p style="margin-top:15px">
+        Here’s to a year of acing exams, making memories, and stealing a few kissi when no one’s looking 😘<br><br>
+        Study hard, shine bright, and just know… you’ve already got my attention, my heart,
+        and maybe a little bit of my mischief too 😭❤️
+    </p>
+    <button onclick="next(4)">Begin Celebration ✨</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="s4" class="screen">
+    <small>A New Year Letter 💌</small>
+    <div class="letter">
+        Loveable laado!,<br><br>
+        as the year turns, may your days be filled with laughter, warmth,
+        and moments that make you smile without even trying.
+    </div>
+    <button onclick="next(5)">Continue 💖</button>
+</div>
+
+<!-- PAGE 5 -->
+<div id="s5" class="screen">
+    <h3>New Year Playlist 🎵</h3>
+    <div class="card-grid">
+        <div class="mini-card">Happy New Year<br>ABBA</div>
+        <div class="mini-card">Auld Lang Syne<br>Classic</div>
+        <div class="mini-card">Firework<br>Katy Perry</div>
+    </div>
+    <button onclick="next(6)">Next ➡️</button>
+</div>
+
+<!-- PAGE 6 -->
+<div id="s6" class="screen">
+    <h3>Little Wishes</h3>
+    <div class="card-grid">
+        <div class="mini-card">Love you ❤️</div>
+        <div class="mini-card">Be Happy 😊</div>
+        <div class="mini-card">Stay Strong 💪</div>
+    </div>
+    <button onclick="next(7)">Check Progress</button>
+</div>
+
+<!-- PAGE 7 -->
+<div id="s7" class="screen">
+    <div style="font-size:42px;">🎉</div>
+    <h3>All Wishes Unlocked!</h3>
+    <p>Every little hope is now wrapped in love 💕</p>
+    <button onclick="next(8)">Final Letter ✉️</button>
+</div>
+
+<!-- PAGE 8 -->
+<div id="s8" class="screen">
+    <h3>Final New Year Wish</h3>
+
+    <div class="letter">
+        Last year was so fun.., so overwhelming…<br>
+        But meeting you made everything worth it.<br>
+        You reminded me what it feels like to truly live,
+        to feel joy again 🫠🫀<br><br>
+        I can’t thank you enough for that, baby.<br>
+        TYSM &lt;3 💌<br>
+        Hope you'll always stays by my side as the past year 🪬💕<br><br>
+        Labbuuu aishwarya shakya! 💋
+        <div class="signature">— saransh</div>
+    </div>
+
+    <button onclick="next(9)">Seal this Wish 🎀</button>
+</div>
+
+<!-- PAGE 9 -->
+<div id="s9" class="screen">
+    <div style="font-size:45px;">💖</div>
+    <h3>Wish Sealed for 2026</h3>
+    <p>
+        Some wishes aren’t meant to be spoken out loud…<br>
+        they’re meant to be felt, protected, and cherished.
+    </p>
+    <button onclick="alert('A tight hug, a forehead kiss, and all my love 🤍')">
+        Send a Virtual Hug 🤗
+    </button>
+</div>
+
+</div>
+
+<script>
+function next(id){
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById('s'+id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
